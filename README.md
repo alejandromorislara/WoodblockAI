@@ -116,9 +116,7 @@ By default, each experiment logs:
 
 Below is an example summary of our experimental findings:
 
-```markdown
 ![Execution Time and Moves Comparison](assets/results_overview.jpeg)
-```
 
 * The **left chart** shows that informed searches (A\*, Weighted A\*, Greedy) typically run faster than blind searches, with Greedy being the quickest on average.
 * The **right chart** highlights that blind searches like DFS may use fewer moves in some cases, but informed strategies tend to balance move count and speed more consistently.
