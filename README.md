@@ -137,5 +137,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## ✉️ Contact
 
 - **Author:** Alejandro Morís Lara & Alfredo Flórez de la Vega & Mateo Bouchet Agudo
-- **GitHub:** [alejandromorislara](https://github.com/alejandromorislara) & [alfredofdlv](https://github.com/alfredofdlv) & [mateo](https://github.com/MateoBAS)
+- **GitHub:** [alejandromorislara](https://github.com/alejandromorislara) & [alfredofdlv](https://github.com/alfredofdlv) & [MateoBAS](https://github.com/MateoBAS)
 - **Email:** alejandrgi2g@gmail.com
