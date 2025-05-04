@@ -3,13 +3,28 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-green.svg)](#requirements)
 
-## 🎲 Overview
-
 Woody Block Search Algorithm is a modular Python framework designed to implement, benchmark, and compare classical uninformed and informed search strategies within the "Woody Block" puzzle environment. This project aims to:
 
 * Showcase core AI search techniques in a unified setting
 * Measure each algorithm’s performance: nodes expanded, solution depth, path cost, and runtime
 * Provide an extensible platform for experimenting with new heuristics or search variants
+
+## 🧩 Problem Formulation
+
+The Woody Block Puzzle challenge in our environment is defined on a rectangular grid populated with static diamonds and a set of available block pieces of various shapes. The objective is to eliminate all diamonds by strategically placing pieces so that complete rows or columns are formed, which clears any diamonds in those lines.
+
+* **States**: A pair $⟨S, D⟩$ where:
+
+  * $S$ is an $n × n$ matrix representing placed blocks (1 for filled cells, 0 for empty).
+  * $D$ is an $n × n$ binary matrix representing remaining diamonds.
+* **Initial State**: $⟨S₀, D₀⟩$, where $S₀$ has no placed blocks, and $D₀$ encodes diamond positions from the level.
+* **Actions**: Choose a block piece from the set and place it at a valid grid position (no overlap or out-of-bounds). Each piece may have multiple orientations.
+* **Transition Model**: Deterministic—placing a piece updates $S$, then any fully occupied row or column in $S$ triggers removal of diamonds in those lines (setting corresponding entries in $D$ to 0).
+* **Goal Test**: All diamonds cleared: $∑ᵢⱼ Dᵢⱼ = 0$.
+* **Cost Function**: Each placement counts as one move (uniform cost). Extensions may assign weighted costs per piece or orientation.
+* **Search Space Complexity**: Combinatorial growth based on grid size, diamond distribution, and piece set.
+
+By modeling block placements and diamond-clear rules, we turn the puzzle into a classical search problem. Comparing uninformed strategies (BFS, DFS, IDS, UCS) with heuristic approaches (Greedy, A\*, Weighted A\*) highlights how heuristic guidance reduces exploration when diamonds are the clearing criterion.
 
 ## ⚙️ Key Features
 
@@ -68,22 +83,6 @@ Woodblock_Algorithm/
    pip install -r requirements.txt
    ```
 
-## 🚀 Usage
-
-Run a single search algorithm against a predefined puzzle:
-
-```bash
-python main.py --algorithm astar --puzzle assets/puzzle1.json
-```
-
-Compare all implemented algorithms over multiple puzzles and export results:
-
-```bash
-python main.py --batch assets/*.json --output results.csv
-```
-
-Use `--help` to explore additional options.
-
 ## 🔍 Algorithm Details
 
 All search classes inherit from the `SearchAlgorithm` interface in `algorithms.py`. Key methods:
@@ -109,17 +108,22 @@ All search classes inherit from the `SearchAlgorithm` interface in `algorithms.p
 
 By default, each experiment logs:
 
-* Total nodes expanded
-* Maximum frontier size
 * Solution depth
 * Path cost
 * Execution time (seconds)
 
-Exported results (CSV) can be visualized using any data analysis tool.
+## 📈 Sample Results
+
+Below is an example summary of our experimental findings:
+
+```markdown
+![Execution Time and Moves Comparison](assets/results_overview.png)
+```
+
+* The **left chart** shows that informed searches (A\*, Weighted A\*, Greedy) typically run faster than blind searches, with Greedy being the quickest on average.
+* The **right chart** highlights that blind searches like DFS may use fewer moves in some cases, but informed strategies tend to balance move count and speed more consistently.
 
 ## In-Game Examples
-
-*Add your own in-game images below:*
 
 ```markdown
 ![In-Game Screenshot](assets/screenshot.png)
@@ -130,5 +134,8 @@ Exported results (CSV) can be visualized using any data analysis tool.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
+## ✉️ Contact
 
-*Designed as an educational tool for exploring search algorithms in puzzle-solving contexts.*
+- **Author:** Alejandro Morís Lara & Alfredo Flórez de la Vega & Mateo Bouchet Agudo
+- **GitHub:** [alejandromorislara](https://github.com/alejandromorislara) & [alfredofdlv](https://github.com/alfredofdlv) & [mateo](https://github.com/MateoBAS)
+- **Email:** alejandrgi2g@gmail.com
