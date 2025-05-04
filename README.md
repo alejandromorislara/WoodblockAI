@@ -117,7 +117,7 @@ By default, each experiment logs:
 Below is an example summary of our experimental findings:
 
 ```markdown
-![Execution Time and Moves Comparison](assets/results_overview.png)
+![Execution Time and Moves Comparison](assets/results_overview.jpeg)
 ```
 
 * The **left chart** shows that informed searches (A\*, Weighted A\*, Greedy) typically run faster than blind searches, with Greedy being the quickest on average.
