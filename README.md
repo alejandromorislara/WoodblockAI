@@ -67,7 +67,7 @@ Woodblock_Algorithm/
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/alfredofdlv/Woodblock_Algorithm.git
+   git clone https://github.com/alejandromorislara/Woodblock_Algorithm.git
    cd Woodblock_Algorithm
    ```
 2. **(Optional) Create a virtual environment**:
@@ -118,7 +118,7 @@ Below is an example summary of our experimental findings:
 
 ![Execution Time and Moves Comparison](assets/results_overview.jpeg)
 
-* The **left chart** shows that informed searches (A\*, Weighted A\*, Greedy) typically run faster than blind searches, with A* weighted being the quickest on average.
+* The **left chart** shows that informed searches (A\*, Weighted A\*, Greedy) typically run faster than blind searches, with Weighted A\* being the quickest on average.
 * The **right chart** highlights that blind searches like DFS may use more moves in some cases, but informed strategies tend to balance move count and speed more consistently.
 
 ## In-Game Examples
